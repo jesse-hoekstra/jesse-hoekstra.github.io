@@ -150,10 +150,9 @@
                       <h3 class="h4 mb-3">Core Contributions</h3>
                       <ul class="mb-0">
                         <li>We show that we can use the same critical-value function as derived by GKM.</li>
-                        <li>We show that when the \(p-2\) largest
-                            eigenvalues decrease in value to be less than \( \infty \), the rejection probability of the test gets
-                            smaller, hence the test will have size smaller or equal to nominal size under the null in all
-                            circumstances..</li>
+                        <li>We show that when the \(p-2\) largest eigenvalues decrease in value to be less than \( \infty \), 
+                            the rejection probability of the test gets smaller, hence the test will have size smaller or equal 
+                            to nominal size under the null in all circumstances.</li>
                         <li>Of core contributions.</li>
                         <li>Stuff like more power.</li>
                         <li>Best feasible.</li>
@@ -167,25 +166,15 @@
                 <div class="">
                     <h3 class="col-md-8 offset-md-2 text-center"> Results </h3>
                     <p class="col-md-8 offset-md-2" style="text-align: left;">
-                        For subvector inference in the linear instrumental variables model 
-                        under homoskedasticity but allowing for weak instruments, Guggenberger, 
-                        Kleibergen, and Mavroeidis (2019) (GKM) propose a conditional subvector 
-                        Anderson and Rubin (1949) (AR) test that uses data-dependent critical 
-                        values that adapt to the strength of the parameters not under test. 
-                        This test has correct size and strictly higher power than the test that
-                        uses standard asymptotic chi-square critical values. The subvector AR 
-                        test is the minimum eigenvalue of a data dependent matrix. The GKM critical
-                        value function conditions on the largest eigenvalue of this matrix. We 
-                        consider instead the data dependent critical value function conditioning 
-                        on the second-smallest eigenvalue, as this eigenvalue is the appropriate 
-                        indicator for weak identification. We find that the data dependent critical 
-                        value function of GKM also applies to this conditioning and show that this 
-                        test has correct size and power strictly higher than the GKM test when the 
-                        number of parameters not under test is larger than one. Our proposed 
-                        procedure further applies to the subvector AR test statistic that is robust 
-                        to an approximate kronecker product structure of conditional heteroskedasticity 
-                        as proposed by Guggenberger, Kleibergen, and Mavroeidis (2024), carrying over 
-                        its power advantage to this setting as well.
+                        The distribution of the subset AR test statistic is of course a function of all \(p−1\)
+                        largest eigenvalues of the non-central Wishart distributed matrix, and other approaches
+                        that consider a larger subset of these eigenvalues could increase power, but likely at the
+                        expense of much higher computational cost (GKM, pp 496-497). Our method retains
+                        one of the main advantages of the GKM test, namely its computational simplicity. The
+                        second-smallest eigenvalue captures the information regarding weak identification better
+                        than the largest eigenvalue. We therefore consider our approach to be the best feasible
+                        subset AR test in this linear IV setting \(-\) it maintains computational simplicity while
+                        properly incorporating weak identification of the parameters not under test.
                     </p>
                 </div>
             </div><br><br>
