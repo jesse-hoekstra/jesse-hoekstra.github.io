@@ -21,6 +21,15 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
     
+    <script>
+      window.MathJax = {
+        tex: {
+          inlineMath: [['$', '$'], ['\\(', '\\)']],
+          displayMath: [['$$', '$$'], ['\\[', '\\]']]
+        }
+      };
+    </script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 
     
 </head>
@@ -122,15 +131,29 @@
                 <div class="row g-4 align-items-start">
                   <div class="col-12 col-lg-7">
                     <h2>Motivation</h2>
-                    <p>Here I want to write down what the core motivation is of this paper..</p>
+                    <p>Whilst a small largest eigenvalue does indicate identification problems, a large largest
+                        eigenvalue does not necessarily imply strong identification. For example, the standard
+                        weak-instruments test for the two-stage least squares estimator is the Cragg and Donald
+                        (1993) test. This is a rank test on the first-stage parameters, which is the minimum
+                        eigenvalue of the first-stage concentration matrix, see also Stock and Yogo (2005). Under
+                        the maintained assumption of instrument validity, the equivalent in the LIML based AR
+                        subvector test is the second-smallest eigenvalue. A small second-smallest eigenvalue then
+                        indicates weak-instrument problems for the estimation of the parameters not under test,
+                        affecting the size and power of the test. 
+                    
+                        We therefore investigate the use of data-dependent critical values that condition not
+                        on the largest but on the second-smallest eigenvalue.</p>
                   </div>
               
                   <div class="col-12 col-lg-5">
                     <div class="p-4 p-md-5 bg-white border-0 border-start border-5 border-primary rounded-4 shadow-sm">
                       <h3 class="h4 mb-3">Core Contributions</h3>
                       <ul class="mb-0">
-                        <li>Her I want to.</li>
-                        <li>Make a list.</li>
+                        <li>We show that we can use the same critical-value function as derived by GKM.</li>
+                        <li>We show that when the \(p-2\) largest
+                            eigenvalues decrease in value to be less than \( \infty \), the rejection probability of the test gets
+                            smaller, hence the test will have size smaller or equal to nominal size under the null in all
+                            circumstances..</li>
                         <li>Of core contributions.</li>
                         <li>Stuff like more power.</li>
                         <li>Best feasible.</li>
