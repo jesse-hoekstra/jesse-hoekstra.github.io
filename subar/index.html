@@ -217,19 +217,19 @@
             <div class="row">
                 <div class="col-md-8 offset-md-2">
                   <p style="text-align: left;">
-                    Hence, the test will have size smaller or equal to nominal size under the null in all circumstances.
+                    Hence, <strong>the test will have size smaller or equal to nominal size under the null in all circumstances</strong>.
                   </p>
                   <p style="text-align: left;">
                     For \(p > 2\), as the critical value when conditioning on the second smallest eigenvalue
-                    is smaller than that conditioning on the largest eigenvalue, this AR subvector testing
-                    procedure has strictly higher power than the GKM test.
+                    is smaller than that conditioning on the largest eigenvalue, <strong>this AR subvector testing
+                    procedure has strictly higher power than the GKM test</strong>.
                   </p>
                 </div>
               </div>
 
               <div class="row">
                 <div class="">
-                    <h3 class="col-md-8 offset-md-2 text-center"> Results </h3>
+                    <h3 class="col-md-8 offset-md-2 text-center"> Concluding remarks </h3>
                     <p class="col-md-8 offset-md-2" style="text-align: left;">
                         The distribution of the subset AR test statistic is of course a function of all \(p−1\)
                         largest eigenvalues of the non-central Wishart distributed matrix, and other approaches
@@ -240,6 +240,16 @@
                         than the largest eigenvalue. We therefore consider our approach to be the best feasible
                         subset AR test in this linear IV setting \(-\) it maintains computational simplicity while
                         properly incorporating weak identification of the parameters not under test.
+                    </p>
+                    <p class="col-md-8 offset-md-2" style="text-align: left;">
+                        Guggenberger, Kleibergen, and Mavroeidis (2024) show further that the same conditional 
+                        critical value function applies to a situation with conditional heteroskedasticity,
+                        where the covariance matrix has an approximate Kronecker product structure. The subvector 
+                        AR statistic is redefined to take account of this Kronecker product structure and
+                        the eigenvalues are from the associated concentration matrix. We present further details
+                        in Appendix A.4. As for the homoskedastic case, <strong>it follows that also for this particular
+                        structure of conditional heteroskedasticy, conditioning on the second-smallest eigenvalue
+                        controls size and has power strictly higher than when conditioning on the largest eigenvalue</strong>.
                     </p>
                 </div>
             </div><br><br>
