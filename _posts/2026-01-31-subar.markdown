@@ -6,7 +6,7 @@ image: /images/power_improvement.png
 categories: research
 author: "Jesse Hoekstra"
 authors: "<strong>Jesse Hoekstra</strong>, Frank Windmeijer"
-venue: "arxiv"
+venue: "arXiv"
 code: "https://github.com/jesse-hoekstra/subvector_AR_HW"
 website: https://jesse-hoekstra.github.io/subar
 ---
