@@ -7,99 +7,505 @@
 
 //@import "reset";
 //@import "variables";
-// Syntax highlighting @import is at the bottom of this file
+
+/**********/
+/* TOKENS */
+/**********/
+:root {
+  --background: #ffffff;
+  --foreground: #020817;
+  --card: #ffffff;
+  --muted-foreground: #64748b;
+  --accent: #f1f5f9;
+  --border: #e2e8f0;
+  --primary: #0f172a;
+  --primary-foreground: #f8fafc;
+  --link: #1d4ed8;
+  --header-bg: rgba(255, 255, 255, 0.85);
+  --radius: 0.5rem;
+  --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif;
+  --font-serif: 'Playfair Display', Georgia, serif;
+  --header-height: 4rem;
+}
+
+@mixin dark-tokens {
+  --background: #020817;
+  --foreground: #f8fafc;
+  --card: #0b1222;
+  --muted-foreground: #94a3b8;
+  --accent: #1e293b;
+  --border: #1e293b;
+  --primary: #f8fafc;
+  --primary-foreground: #0f172a;
+  --link: #93c5fd;
+  --header-bg: rgba(2, 8, 23, 0.85);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    @include dark-tokens;
+  }
+}
+
+:root[data-theme="dark"] {
+  @include dark-tokens;
+}
 
 /**************/
 /* BASE RULES */
 /**************/
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: calc(var(--header-height) + 1rem);
+}
+
+body {
+  margin: 0;
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-sans);
+  font-size: 16px;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
 a {
-  color: #1772d0;
+  color: var(--link);
   text-decoration: none;
 }
 
 a:focus,
 a:hover {
-  color: #f09228;
-  text-decoration: none;
+  text-decoration: underline;
+  text-underline-offset: 3px;
 }
 
-body,
-td,
-th,
-tr,
-p,
-a {
-  font-family: 'Lato', Verdana, Helvetica, sans-serif;
-  font-size: 14px;
-  font-display: auto;
+h1,
+h2,
+h3,
+h4 {
+  margin: 0;
+  line-height: 1.25;
 }
 
-strong {
-  font-family: 'Lato', Verdana, Helvetica, sans-serif;
-  font-size: 14px;
-  font-display: auto;
+p {
+  margin: 0 0 1rem;
 }
 
-h2 {
-  font-family: 'Lato', Verdana, Helvetica, sans-serif;
-  font-size: 22px;
-  font-display: auto;
-  font-weight: normal;
-  padding: 0px;
-  margin: 0px;
-  display:inline; 
+img {
+  max-width: 100%;
+  display: block;
 }
 
-h3 {
-  font-family: 'Lato', Verdana, Helvetica, sans-serif;
-  font-size: 14px;
+svg {
+  width: 1.25rem;
+  height: 1.25rem;
+  flex-shrink: 0;
+}
+
+.muted {
+  color: var(--muted-foreground);
+}
+
+.small {
+  font-size: 0.875rem;
+}
+
+/**********/
+/* HEADER */
+/**********/
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  height: var(--header-height);
+  background: var(--header-bg);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border-bottom: 1px solid var(--border);
+}
+
+.header-inner {
+  max-width: 1400px;
+  height: 100%;
+  margin: 0 auto;
+  padding: 0 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.site-name {
+  font-weight: 600;
+  color: var(--foreground);
+  white-space: nowrap;
+}
+
+.site-nav {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+
+  a {
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: var(--muted-foreground);
+
+    &:hover {
+      color: var(--foreground);
+      text-decoration: none;
+    }
+  }
+
+  .nav-blog {
+    color: var(--primary-foreground);
+    background: var(--primary);
+    padding: 0.4rem 0.9rem;
+    border-radius: var(--radius);
+
+    &:hover {
+      color: var(--primary-foreground);
+      opacity: 0.9;
+    }
+  }
+}
+
+.icon-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: var(--radius);
+  border: 1px solid transparent;
+  background: transparent;
+  color: var(--foreground);
+  cursor: pointer;
+  transition: background-color 0.15s ease;
+
+  &:hover {
+    background: var(--accent);
+    text-decoration: none;
+  }
+}
+
+#theme-toggle {
+  border-color: var(--border);
+
+  .icon-moon {
+    display: none;
+  }
+}
+
+@mixin dark-toggle {
+  .icon-sun {
+    display: none;
+  }
+
+  .icon-moon {
+    display: block;
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) #theme-toggle {
+    @include dark-toggle;
+  }
+}
+
+:root[data-theme="dark"] #theme-toggle {
+  @include dark-toggle;
+}
+
+/**********/
+/* LAYOUT */
+/**********/
+.layout {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 3rem 2rem;
+  display: flex;
+  gap: 4rem;
+  align-items: flex-start;
+}
+
+// Profile stays in view while the content column scrolls
+.profile {
+  flex: 0 0 300px;
+  position: sticky;
+  top: calc(var(--header-height) + 3rem);
+}
+
+.profile-photo {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+  border-radius: var(--radius);
+}
+
+.profile h1 {
+  margin-top: 1.5rem;
+  margin-bottom: 0.75rem;
+  font-family: var(--font-serif);
+  font-size: 1.875rem;
   font-weight: 700;
-  font-display: auto;
-  padding: 0px;
-  margin: 0px;
-  display:inline; 
+  letter-spacing: -0.01em;
 }
 
-h1 {
-  font-family: 'Lato', Verdana, Helvetica, sans-serif;
-  font-size: 32px;
-  font-weight: normal;
-  font-display: auto;
-  text-align: center;
-  padding: 0px;
-  margin-block-start: 14px;
-  margin-block-end: 14px;
-  margin-left: 0px;
-  margin-right: 0px;
-
+.social {
+  display: flex;
+  gap: 0.5rem;
+  margin-left: -0.5rem;
 }
 
-.one {
-  width: 160px;
-  height: 160px;
-  position: relative;
+.profile-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin-top: 1rem;
 }
 
-.two {
-  width: 160px;
-  height: 160px;
-  position: absolute;
-  transition: opacity .2s ease-in-out;
-  -moz-transition: opacity .2s ease-in-out;
-  -webkit-transition: opacity .2s ease-in-out;
+.button {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  height: 2.5rem;
+  padding: 0 1rem;
+  border-radius: var(--radius);
+  font-size: 0.875rem;
+  font-weight: 500;
+  transition: opacity 0.15s ease, background-color 0.15s ease;
+
+  svg {
+    width: 1rem;
+    height: 1rem;
+  }
+
+  &:hover {
+    text-decoration: none;
+  }
 }
 
-.fade {
-  transition: opacity .2s ease-in-out;
-  -moz-transition: opacity .2s ease-in-out;
-  -webkit-transition: opacity .2s ease-in-out;
+.button-primary {
+  background: var(--primary);
+  color: var(--primary-foreground);
+
+  &:hover {
+    color: var(--primary-foreground);
+    opacity: 0.9;
+  }
 }
 
-span.highlight {
-  background-color: #ffffd0;
+.button-outline {
+  border: 1px solid var(--border);
+  color: var(--foreground);
+
+  &:hover {
+    color: var(--foreground);
+    background: var(--accent);
+  }
 }
 
-// Settled on moving the import of syntax highlighting to the bottom of the CSS
-// ... Otherwise it really bloats up the top of the CSS file and makes it difficult to find the start
-//@import "highlights";
-//@import "svg-icons";
+.content {
+  flex: 1;
+  min-width: 0;
+}
+
+/************/
+/* SECTIONS */
+/************/
+.section {
+  margin-bottom: 3rem;
+
+  h2 {
+    font-family: var(--font-serif);
+    font-size: 1.5rem;
+    font-weight: 700;
+    padding-bottom: 0.5rem;
+    margin-bottom: 1.5rem;
+    border-bottom: 1px solid var(--border);
+  }
+
+  h3 {
+    font-family: var(--font-serif);
+    font-size: 1.25rem;
+    font-weight: 700;
+    margin: 2rem 0 1rem;
+  }
+
+  h4 {
+    font-size: 1rem;
+    font-weight: 500;
+  }
+}
+
+.entries {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  margin-bottom: 1.5rem;
+
+  p {
+    margin: 0;
+  }
+}
+
+.blog-link a {
+  font-weight: 500;
+}
+
+/*********/
+/* CARDS */
+/*********/
+.cards {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.card {
+  display: flex;
+  gap: 1.5rem;
+  padding: 1rem;
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+  transition: box-shadow 0.2s ease, border-color 0.2s ease;
+
+  &:hover {
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    border-color: var(--muted-foreground);
+  }
+}
+
+// Figures are transparent PNGs with dark text, so keep a white backdrop in both themes
+.card-image {
+  flex: 0 0 220px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.5rem;
+  background: #ffffff;
+  border: 1px solid var(--border);
+  border-radius: calc(var(--radius) - 2px);
+  overflow: hidden;
+  align-self: flex-start;
+
+  img {
+    width: 100%;
+    height: 160px;
+    object-fit: contain;
+    transition: transform 0.2s ease;
+  }
+}
+
+.card:hover .card-image img {
+  transform: scale(1.03);
+}
+
+.card-body {
+  flex: 1;
+  min-width: 0;
+
+  h3 {
+    font-family: var(--font-sans);
+    font-size: 1.0625rem;
+    font-weight: 600;
+    margin: 0 0 0.5rem;
+  }
+
+  p {
+    margin-bottom: 0.25rem;
+  }
+
+  strong {
+    color: var(--foreground);
+    font-weight: 600;
+  }
+}
+
+.card-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin: 0.5rem 0;
+  font-size: 0.875rem;
+}
+
+.abstract {
+  font-size: 0.875rem;
+  color: var(--muted-foreground);
+
+  summary {
+    cursor: pointer;
+    font-weight: 500;
+    color: var(--foreground);
+    width: fit-content;
+  }
+
+  p {
+    margin-top: 0.5rem;
+    text-align: justify;
+  }
+}
+
+/**********/
+/* MOBILE */
+/**********/
+@media (max-width: 900px) {
+  .layout {
+    flex-direction: column;
+    gap: 2.5rem;
+    padding: 2rem 1rem;
+  }
+
+  .profile {
+    position: static;
+    flex: none;
+    width: 100%;
+    text-align: center;
+  }
+
+  .profile-photo {
+    max-width: 260px;
+    margin: 0 auto;
+  }
+
+  .social,
+  .profile-actions {
+    justify-content: center;
+    margin-left: 0;
+  }
+
+  .header-inner {
+    padding: 0 1rem;
+  }
+}
+
+@media (max-width: 640px) {
+  // Section anchors are redundant once everything stacks; keep the Blog button and theme toggle
+  .site-nav a:not(.nav-blog) {
+    display: none;
+  }
+
+  .site-nav {
+    gap: 0.75rem;
+  }
+
+  .card {
+    flex-direction: column;
+  }
+
+  .card-image {
+    flex: none;
+    width: 100%;
+  }
+}

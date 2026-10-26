@@ -1,0 +1,28 @@
+{% assign p = include.post %}
+<article class="card">
+  {% if p.image %}
+  <a class="card-image" href="{% if p.website %}{{ p.website }}{% elsif p.arxiv %}{{ p.arxiv }}{% elsif p.journal %}{{ p.journal }}{% elsif p.ssrn %}{{ p.ssrn }}{% else %}{{ site.baseurl }}/tn{{ p.image }}{% endif %}">
+    <img src="{{ site.baseurl }}/tn{{ p.image }}" alt="Figure from {{ p.title }}" loading="lazy" />
+  </a>
+  {% endif %}
+  <div class="card-body">
+    <h3>{{ p.title }}</h3>
+    <p class="muted small">{{ p.authors }}</p>
+    <p class="small"><em>{{ p.venue }}</em>, {{ p.date | date: "%Y" }}</p>
+    <div class="card-links">
+      {% if p.journal %}<a href="{{ p.journal }}">[Journal]</a>{% endif %}
+      {% if p.arxiv %}<a href="{{ p.arxiv }}">[arXiv]</a>{% endif %}
+      {% if p.ssrn %}<a href="{{ p.ssrn }}">[SSRN]</a>{% endif %}
+      {% if p.website %}<a href="{{ p.website }}">[Website]</a>{% endif %}
+      {% if p.code %}<a href="{{ p.code }}">[Code]</a>{% endif %}
+      {% if p.video %}<a href="{{ p.video }}">[Video]</a>{% endif %}
+      {% if p.poster %}<a href="{{ p.poster }}">[Poster]</a>{% endif %}
+      {% if p.slides %}<a href="{{ p.slides }}">[Slides]</a>{% endif %}
+      {% if p.youtube %}<a href="{{ p.youtube }}">[YouTube]</a>{% endif %}
+    </div>
+    <details class="abstract">
+      <summary>Abstract</summary>
+      {{ p.excerpt }}
+    </details>
+  </div>
+</article>
