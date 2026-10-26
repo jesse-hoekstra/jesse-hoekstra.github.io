@@ -163,18 +163,6 @@ svg {
       text-decoration: none;
     }
   }
-
-  .nav-blog {
-    color: var(--primary-foreground);
-    background: var(--primary);
-    padding: 0.4rem 0.9rem;
-    border-radius: var(--radius);
-
-    &:hover {
-      color: var(--primary-foreground);
-      opacity: 0.9;
-    }
-  }
 }
 
 .icon-button {
@@ -491,8 +479,8 @@ svg {
 }
 
 @media (max-width: 640px) {
-  // Section anchors are redundant once everything stacks; keep the Blog button and theme toggle
-  .site-nav a:not(.nav-blog) {
+  // Section anchors are redundant once everything stacks; keep the theme toggle
+  .site-nav a {
     display: none;
   }
 
