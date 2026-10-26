@@ -37,7 +37,8 @@
       <a class="site-name" href="{{ site.baseurl }}/">{{ site.name }}</a>
       <nav class="site-nav">
         <a href="#about">About</a>
-        <a href="#research">Research</a>
+        <a href="#ongoing-research">Research</a>
+        <a href="#talks-teaching">Talks &amp; Teaching</a>
         <button class="icon-button" id="theme-toggle" type="button" aria-label="Toggle theme">
           <svg class="icon-sun" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2"/><path d="M12 20v2"/><path d="m4.93 4.93 1.41 1.41"/><path d="m17.66 17.66 1.41 1.41"/><path d="M2 12h2"/><path d="M20 12h2"/><path d="m6.34 17.66-1.41 1.41"/><path d="m19.07 4.93-1.41 1.41"/></svg>
           <svg class="icon-moon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"/></svg>
@@ -98,7 +99,16 @@
         <p class="blog-link"><a href="https://jessehoekstra.substack.com" target="_blank" rel="noopener noreferrer">Read my blog for more updates and thoughts &rarr;</a></p>
       </section>
 
-      <section id="research" class="section">
+      <section id="ongoing-research" class="section">
+        <h2>Ongoing Research</h2>
+        <div class="entries">
+          <div>
+            <h4>Identification within world models</h4>
+          </div>
+        </div>
+      </section>
+
+      <section id="selected-research" class="section">
         <h2>Selected Research</h2>
         <p>My work encompasses the intersection of statistics and machine learning. In particular, I have a strong interest in causality, the intricacies of machine learning methodologies, and their interplay in understanding complex systems.</p>
         <div class="cards">
@@ -117,6 +127,38 @@
           {% include paper_card.html post=post %}
           {% endif %}
           {% endfor %}
+        </div>
+      </section>
+
+      <section id="talks-teaching" class="section">
+        <h2>Talks and Teaching</h2>
+
+        <h3>Talks</h3>
+        <div class="entries">
+          <div>
+            <h4><a href="https://www.econometricsociety.org/regional-activities/schedule/2026/06/19/2026-Asia-Meeting-China-Hong-Kong#home">AMES-China 2026</a></h4>
+            <p class="muted small">Asia Meeting of the Econometric Society &middot; Hong Kong, China</p>
+          </div>
+          <div>
+            <h4><a href="https://sites.google.com/g.ecc.u-tokyo.ac.jp/seta2026">SETA 2026</a></h4>
+            <p class="muted small">Symposium on Econometric Theory and Applications &middot; Tokyo, Japan</p>
+          </div>
+          <div>
+            <h4><a href="https://www.econometricstudygroup.org/programs/">ESG 2025</a></h4>
+            <p class="muted small">Econometrics Study Group Conference &middot; Bristol, UK</p>
+          </div>
+        </div>
+
+        <h3>Teaching</h3>
+        <div class="entries">
+          <div>
+            <h4>University of Oxford</h4>
+            <p class="muted small">Oxford, UK</p>
+            <ul>
+              <li>TA for SC4, Advanced Statistical Machine Learning</li>
+              <li>TA for SB1.1, Applied Statistics</li>
+            </ul>
+          </div>
         </div>
       </section>
     </div>

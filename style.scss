@@ -328,6 +328,10 @@ svg {
     margin: 2rem 0 1rem;
   }
 
+  h2 + h3 {
+    margin-top: 0;
+  }
+
   h4 {
     font-size: 1rem;
     font-weight: 500;
@@ -342,6 +346,11 @@ svg {
 
   p {
     margin: 0;
+  }
+
+  ul {
+    margin: 0.5rem 0 0;
+    padding-left: 1.25rem;
   }
 }
 
