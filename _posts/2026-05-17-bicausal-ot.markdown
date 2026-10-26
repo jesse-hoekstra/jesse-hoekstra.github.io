@@ -1,0 +1,12 @@
+---
+layout: post
+title:  "Scalable Bi-causal Optimal Transport via KL Relaxation and Policy Gradients"
+date:   2026-05-17 00:00:00 +00:00
+image: /images/bicausal_ot_algorithm.png
+categories: research
+author: "Jesse Hoekstra"
+authors: "Haoyang Cao, <strong>Jesse Hoekstra</strong>, Renyuan Xu, Yumin Xu, Ruixun Zhang"
+venue: "arXiv"
+arxiv: https://arxiv.org/abs/2605.17271
+---
+Bi-causal optimal transport (OT) is a natural framework for comparing and coupling stochastic processes under nonanticipative information constraints, with important applications in robust finance, sequential uncertainty quantification, and multistage stochastic optimization. In particular, a learned bi-causal coupling naturally serves as a simulator for generating joint sample paths that respect both prescribed marginal laws and the underlying information flow. Its practical use, however, is limited by the computational difficulty of enforcing bi-causal coupling constraints over path space, especially for continuous distributions and long horizons. We develop a scalable stochastic-optimization framework for computing bi-causal OT couplings under general marginals. Our approach introduces a Kullback–Leibler (KL)-penalized relaxation that replaces hard marginal constraints with tractable divergence penalties while preserving the recursive structure of the problem. We establish dynamic programming principles for both the original and relaxed formulations, prove that the relaxed problem converges to the original bi-causal OT problem as the penalty grows, and derive explicit policy-gradient representations for the relaxed objective. Building on these results, we propose a practical policy-gradient algorithm with unbiased mini-batch estimators, variance reduction, and nonasymptotic regret guarantees. Numerical experiments show that the method accurately captures marginal laws and temporal dependence, and performs well in applications including robust subhedging and time series statistical downscaling. These results provide a scalable computational approach to bi-causal OT and broaden its applicability in settings where nonanticipative information constraints are essential.
