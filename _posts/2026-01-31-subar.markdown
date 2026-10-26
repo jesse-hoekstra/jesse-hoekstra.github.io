@@ -4,6 +4,7 @@ title:  "Best Feasible Conditional Critical Values for a More Powerful Subvector
 date:   2026-01-26 00:00:00 +00:00
 image: /images/power_improvement.png
 categories: research
+order: 1
 author: "Jesse Hoekstra"
 authors: "<strong>Jesse Hoekstra</strong>, Frank Windmeijer"
 venue: "arXiv"

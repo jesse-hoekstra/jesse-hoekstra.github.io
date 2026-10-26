@@ -102,10 +102,9 @@
         <h2>Selected Research</h2>
         <p>My work encompasses the intersection of statistics and machine learning. In particular, I have a strong interest in causality, the intricacies of machine learning methodologies, and their interplay in understanding complex systems.</p>
         <div class="cards">
-          {% for post in site.posts %}
-          {% if post.categories contains 'research' %}
+          {% assign research_posts = site.categories.research | sort: 'order' %}
+          {% for post in research_posts %}
           {% include paper_card.html post=post %}
-          {% endif %}
           {% endfor %}
         </div>
       </section>

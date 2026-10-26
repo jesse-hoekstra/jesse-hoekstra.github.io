@@ -4,6 +4,7 @@ title:  "Scalable Bi-causal Optimal Transport via KL Relaxation and Policy Gradi
 date:   2026-05-17 00:00:00 +00:00
 image: /images/bicausal_ot_algorithm.png
 categories: research
+order: 2
 author: "Jesse Hoekstra"
 authors: "Haoyang Cao, <strong>Jesse Hoekstra</strong>, Renyuan Xu, Yumin Xu, Ruixun Zhang"
 venue: "arXiv"
