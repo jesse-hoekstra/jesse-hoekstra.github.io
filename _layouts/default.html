@@ -11,6 +11,9 @@
   <meta name="description" content="Academic website of {{ site.name }}, DPhil student in Statistics at the University of Oxford" />
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
+  <link rel="icon" href="{{ site.baseurl }}/favicon.ico" sizes="32x32" />
+  <link rel="icon" href="{{ site.baseurl }}/favicon.svg" type="image/svg+xml" />
+  <link rel="apple-touch-icon" href="{{ site.baseurl }}/apple-touch-icon.png" />
   <link rel="stylesheet" type="text/css" href="{{ site.baseurl }}/style.css" />
   <link rel="canonical" href="{{ page.url | replace:'index.html','' | prepend: site.baseurl | prepend: site.url }}">
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -73,7 +76,7 @@
     <div class="content">
       <section id="about" class="section">
         <h2>About Me</h2>
-        <p>I am a second-year DPhil in Statistics student at the <a href="https://www.ox.ac.uk">University of Oxford</a>, <a href="https://www.nuffield.ox.ac.uk/people/profiles/jesse-hoekstra/">Nuffield College</a>, and recipient of the <a href="https://www.ox.ac.uk/clarendon/scholar-class-lists/scholars-2020-21-to-2029-30">Clarendon Fund Scholarship</a>. I am advised by <a href="https://www.stats.ox.ac.uk/people/frank-windmeijer">Frank Windmeijer</a> and <a href="https://www.stats.ox.ac.uk/~teh/">Yee Whye Teh</a>.</p>
+        <p>I am a second-year DPhil in Statistics student at the <a href="https://www.ox.ac.uk">University of Oxford</a>, <a href="https://www.nuffield.ox.ac.uk/people/profiles/jesse-hoekstra/">Nuffield College</a>, and recipient of the <a href="https://www.clarendonscholarsassociation.co.uk/2024">Clarendon Fund Scholarship</a>. I am advised by <a href="https://www.stats.ox.ac.uk/people/frank-windmeijer">Frank Windmeijer</a> and <a href="https://www.stats.ox.ac.uk/~teh/">Yee Whye Teh</a>.</p>
         <p>Before starting my PhD, I graduated with distinction and cum laude from the <a href="https://www.lse.ac.uk">London School of Economics and Political Science</a> (MSc) and the <a href="https://www.uva.nl">University of Amsterdam</a> (BSc), focusing on econometrical and machine learning methodologies.</p>
 
         <h3>Education</h3>
@@ -109,7 +112,6 @@
 
       <section id="other-research" class="section">
         <h2>Other Research</h2>
-        <p>Previous research projects completed during my BSc and MSc studies.</p>
         <div class="cards">
           {% for post in site.posts %}
           {% if post.categories contains 'past_research' %}
